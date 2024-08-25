@@ -1,0 +1,121 @@
+@font-face {
+    font-family: outfit;
+    src: url(fonts/Outfit-Regular.ttf);
+}
+
+*{
+    font-family: outfit;
+    box-sizing: border-box;
+    color: white;
+}
+
+body {
+    background-color: black;
+    color: rgb(30, 30, 30);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: outfit;
+}
+
+h1 {
+    color: white;
+}
+
+#model {
+    color: white;
+}
+
+#screen {
+
+    width: 375px;
+    height: 250px;
+    border: 3px solid black;
+    margin-bottom: 10px;
+    background-color: black;
+    border-bottom: 2px solid white;
+    color: white;
+    text-align: right;
+    font-size: 50px;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#calc {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+    flex-shrink: 0;
+    background-color: rgb(0, 0, 0);
+    border-radius: 75px;
+    border: 5px solid black;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+button{
+    border-radius: 100px;
+    min-width: 75px;
+    min-height: 75px;
+    font-size: 40px;
+    border: 0;
+    text-align: center;
+    margin: 10px;
+}
+
+.option {
+    background-color: rgb(162, 162, 162);
+    font-size: 35px;
+}
+
+.numbers {
+    font-family: outfit;
+    width: 75px;
+    height: 75px;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    gap: 10px;
+    border: 3px solid rgb(30, 30, 30);
+}
+
+button:hover {
+    border: 3px solid white;
+    background-color: rgb(13, 13, 13);
+}
+
+#zero {
+    width: 175px;
+    height: 75px;
+    text-align: left;
+    padding-left: 22px;
+    margin-right: 10px;
+}
+
+.operators {
+    background-color: orange;
+    color: white;
+}
+
+.option {
+    color: black;
+}
+
+.operators:hover{
+    background-color: rgb(87, 57, 1);
+}
+
+.option:hover{
+    background-color: rgb(103, 103, 103);
+}

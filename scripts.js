@@ -1,6 +1,5 @@
 // Output Variables
 let botScreen = document.getElementById("bottomScreen");
-let botScreenText = document.createElement("div");
 let a = "";
 let b = "";
 let ans = 0;
@@ -14,9 +13,10 @@ const operators = document.querySelectorAll(".operators");
 const equal = document.getElementById("equals");
 const opposite = document.getElementById("neg");
 const backspace = document.getElementById("back");
+const clear = document.getElementById("clear");
 
-//functions
-function updateScreen(){
+// Functions
+function updateScreen() {
     botScreen.textContent = `${a} ${op} ${b}`;
 }
 
@@ -43,25 +43,38 @@ opposite.addEventListener("click", function() {
             b = (parseFloat(b) * -1).toString();
         }
     }
+    updateScreen();
 });
 
-function handleNumberInput(num){
-    if(op === ""){
-        a += num;
+function handleNumberInput(num) {
+    if (num === ".") {
+        if (op === "") {
+            if (!a.includes(".")) {
+                a += num;
+            }
+        } else {
+            if (!b.includes(".")) {
+                b += num;
+            }
+        }
     } else {
-        b += num;
+        if(op === ""){
+            a += num;
+        } else {
+            b += num;
+        }
     }
     updateScreen();
 }
 
-function handleOperatorInput(operator){
+function handleOperatorInput(operator) {
     if(a !== ""){
         op = operator;
         updateScreen();
     }
 }
 
-function calculateResult(){
+function calculateResult() {
     if(a !== "" && b !== "" && op !== ""){
         switch(op){
             case "+":
@@ -77,7 +90,7 @@ function calculateResult(){
                 ans = parseFloat(a) / parseFloat(b);
                 break;
         }
-        topScreen.textContent = `${a} ${op} ${b} =`
+        topScreen.textContent = `${a} ${op} ${b} =`;
         botScreen.textContent = ans;
         a = ans.toString();
         b = "";
@@ -96,9 +109,9 @@ clear.addEventListener("click", function() {
 
 backspace.addEventListener("click", function() {
     if(op === ""){
-        a = a.slice(0,-1);
+        a = a.slice(0, -1);
     } else if (b !== ""){
-        b = b.slice(0,-1);
+        b = b.slice(0, -1);
     } else {
         op = "";
     }
@@ -112,7 +125,7 @@ document.addEventListener("keydown", function(event) {
         handleNumberInput(key);
     }
 
-    if(key === "+" || key === "-" || key === "/" ||  key === "*"){
+    if(key === "+" || key === "-" || key === "/" || key === "*"){
         handleOperatorInput(key);
     }
 
@@ -125,7 +138,7 @@ document.addEventListener("keydown", function(event) {
     }
 
     if(key.toLowerCase() === "c"){
-        this.clear.click();
+        clear.click();
     }
 });
 
